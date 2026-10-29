@@ -89,7 +89,7 @@
     isNormalUser = true;
     description = "samandar";
     extraGroups = [ "networkmanager" "wheel" ];
-    # shell = pkgs.zsh;
+    shell = pkgs.zsh;
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -98,7 +98,7 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-  # programs.zsh.enable = true;
+  programs.zsh.enable = true;
   programs.direnv.enable = true;
 
   # Allow unfree packages
