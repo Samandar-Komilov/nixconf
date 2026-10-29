@@ -9,15 +9,17 @@
     zsh-autosuggestions
     oh-my-zsh
     alacritty
-    nvim
+    neovim
 
     antigravity-fhs
   ];
 
   programs.git = {
     enable = true;
-    userName = "samandar.komilov";
-    userEmail = "komilov.samandar@uzinfocom.uz";
+    user = {
+      name = "samandar.komilov";
+      email = "komilov.samandar@uzinfocom.uz";
+    }
   };
 
   programs.zsh = {
