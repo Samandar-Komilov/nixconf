@@ -39,6 +39,31 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  virtualisation = {
+    docker = {
+      enable = true;
+      # storageDriver = "btrfs";
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+        daemon.settings = {
+          data-root = "~/.local/docker";
+          # dns = [ "1.1.1.1" "8.8.8.8" ];
+          registry-mirrors = ["https://mirror.gcr.io"];
+        };
+      };
+    };
+    libvirtd = {
+      enable = true;
+      qemu.vhostUserPackages = with pkgs; [virtiofsd];
+    };
+  };
+
+  programs.virt-manager.enable = true;
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
+  networking.firewall.trustedInterfaces = ["virbr0"];
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -92,7 +117,7 @@
   users.users."samandar" = {
     isNormalUser = true;
     description = "samandar";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker" "libvirtd"];
     shell = pkgs.zsh;
     packages = with pkgs; [];
   };
@@ -110,7 +135,28 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings = {
+    experimental-features = "nix-command flakes pipe-operators";
+    # Opinionated: disable global registry
+    flake-registry = "";
+    # Workaround for https://github.com/NixOS/nix/issues/9574
+    nix-path = config.nix.nixPath;
+
+    substituters = [
+      "https://cache.xinux.uz?priority=1" # Uzbek Xinux mirror
+      "https://mirror.sjtu.edu.cn/nix-channels/store?priority=2" # Shanghai Jiao Tong University - best for Asia
+      "https://mirrors.ustc.edu.cn/nix-channels/store?priority=3" # USTC backup mirror
+      "https://nix-community.cachix.org?priority=4" # Community packages
+      "https://cache.nixos.org?priority=5" # Official global cache
+    ];
+    http-connections = 128;
+    max-substitution-jobs = 128;
+    max-jobs = "auto";
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
+    ];
+  };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -124,6 +170,9 @@
     vscode
     telegram-desktop
     direnv
+    docker
+    dive
+    dnsmasq
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
