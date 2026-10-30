@@ -20,6 +20,6 @@
     fd
     wl-clipboard
     nerd-fonts.jetbrains-mono
-    antigravity-fhs
+    inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-cli
   ];
 }

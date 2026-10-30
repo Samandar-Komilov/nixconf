@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.plasma = {
     enable = true;
     overrideConfig = false;
@@ -11,15 +11,15 @@
 
     kwin = {
       titlebarButtons = {
-        left = [ "close" "minimize" "maximize" ];
-        right = [ ];
+        left = [];
+        right = ["minimize" "maximize" "close"];
       };
     };
 
     panels = [
       {
         location = "top";
-        height = 28;
+        height = 30;
         lengthMode = "fill";
         alignment = "center";
         floating = false;
@@ -49,22 +49,22 @@
         alignment = "center";
         floating = true;
         hiding = "dodgewindows";
-        widgets = [
-          {
-            iconTasks = {
-              launchers = [
-                "applications:org.kde.dolphin.desktop"
-                "applications:Alacritty.desktop"
-                "applications:code.desktop"
-                "applications:firefox.desktop"
-              ];
-              appearance = {
-                showTooltips = true;
-                highlightWindows = true;
-              };
-            };
-          }
-        ];
+        # widgets = [
+        #   {
+        #     iconTasks = {
+        #       launchers = [
+        #         "applications:org.kde.dolphin.desktop"
+        #         "applications:Alacritty.desktop"
+        #         "applications:code.desktop"
+        #         "applications:firefox.desktop"
+        #       ];
+        #       appearance = {
+        #         showTooltips = true;
+        #         highlightWindows = true;
+        #       };
+        #     };
+        #   }
+        # ];
       }
     ];
   };
