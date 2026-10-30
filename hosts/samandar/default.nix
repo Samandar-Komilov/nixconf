@@ -1,7 +1,6 @@
 {
   nixpkgs,
   home-manager,
-  plasma-manager,
   ...
 }@inputs:
 nixpkgs.lib.nixosSystem {
@@ -21,7 +20,6 @@ nixpkgs.lib.nixosSystem {
       home-manager = {
         useGlobalPkgs = true;
 	useUserPackages = true;
-	sharedModules = [plasma-manager.homeModules.plasma-manager];
 
         extraSpecialArgs = { inherit inputs; };
         users.samandar = import ../../home-manager/samandar.nix;

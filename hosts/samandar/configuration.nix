@@ -15,7 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.hostName = "voidp"; # Define your hostname.
+  networking.hostName = "samandar"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -131,6 +131,12 @@
     set tabstospaces
     set tabsize 2
   '';
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = false;
+    dedicatedServer.openFirewall = false;
+    gamescopeSession.enable = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

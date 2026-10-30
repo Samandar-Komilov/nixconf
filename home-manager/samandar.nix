@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   home.username = "samandar";
   home.homeDirectory = "/home/samandar";
   home.stateVersion = "26.05";
@@ -10,7 +10,6 @@
     ./modules/zsh.nix
     ./modules/git.nix
     ./modules/vscode.nix
-    ./modules/plasma.nix
   ];
 
   home.packages = with pkgs; [
@@ -20,6 +19,7 @@
     fd
     wl-clipboard
     nerd-fonts.jetbrains-mono
+
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-cli
   ];
 }

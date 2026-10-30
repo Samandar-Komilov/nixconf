@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   programs.git = {
     enable = true;
-    userName = "samandar.komilov";
-    userEmail = "komilov.samandar@uzinfocom.uz";
+    settings.user.name = "samandar.komilov";
+    settings.user.email = "komilov.samandar@uzinfocom.uz";
   };
 }
