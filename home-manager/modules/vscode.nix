@@ -21,7 +21,7 @@
       ];
 
       userSettings = {
-        "workbench.colorTheme" = "Gruvbox Dark Medium";
+        "workbench.colorTheme" = "Gruvbox Dark Hard";
         "workbench.iconTheme" = "vscode-icons";
         "workbench.sideBar.location" = "left";
         "workbench.editor.showTabs" = "multiple";
