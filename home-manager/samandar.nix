@@ -17,6 +17,24 @@
   ];
 
   home.packages = with pkgs; [
+    # Core CLI & modern utils
+    tree
+    file
+    bat
+    btop
+    duf
+    dust
+    xh
+    rsync
+    ouch
+    sd
+    jq
+    pciutils
+    usbutils
+    fastfetch
+    nix-tree
+
+    # Editors, Shell & Terminal
     neovim
     eza
     ripgrep
