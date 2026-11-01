@@ -1,24 +1,53 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
 
     profiles.default = {
-      extensions = with pkgs.vscode-extensions; [
-        jdinhlife.gruvbox
-        vscode-icons-team.vscode-icons
-        rust-lang.rust-analyzer
-        ziglang.vscode-zig
-        usernamehw.errorlens
-        wakatime.vscode-wakatime
-        charliermarsh.ruff
-        jnoortheen.nix-ide
-        tamasfe.even-better-toml
-        mkhl.direnv
-        kamadorueda.alejandra
-        esbenp.prettier-vscode
-        eamodio.gitlens
-      ];
+      extensions =
+        (with pkgs.vscode-extensions; [
+          # General
+          wakatime.vscode-wakatime
+          jdinhlife.gruvbox
+          vscode-icons-team.vscode-icons
+          usernamehw.errorlens
+          vadimcn.vscode-lldb
+          gruntfuggly.todo-tree
+          mechatroner.rainbow-csv
+          tamasfe.even-better-toml
+          esbenp.prettier-vscode
+          eamodio.gitlens
+
+          # Rust & Nix
+          rust-lang.rust-analyzer
+          jnoortheen.nix-ide
+          mkhl.direnv
+          kamadorueda.alejandra
+
+          # Python
+          ms-python.python
+          ms-python.debugpy
+          charliermarsh.ruff
+
+          # C / C++ / Zig
+          llvm-vs-code-extensions.vscode-clangd
+          ms-vscode.cmake-tools
+          ziglang.vscode-zig
+
+          # Go
+          golang.go
+
+          # Assembly
+          pkgs.vscode-extensions."13xforever".language-x86-64-assembly
+        ])
+        ++ [
+          (pkgs.vscode-utils.extensionFromVscodeMarketplace {
+            name = "arm";
+            publisher = "dan-c-underwood";
+            version = "1.7.4";
+            hash = "sha256-gZBM980AoD+0wnfHXJK9sqCuuLtRY08JnO3Qdq/TRfc=";
+          })
+        ];
 
       userSettings = {
         "workbench.colorTheme" = "Gruvbox Dark Hard";

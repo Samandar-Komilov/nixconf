@@ -1,4 +1,8 @@
-{pkgs, inputs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home.username = "samandar";
   home.homeDirectory = "/home/samandar";
   home.stateVersion = "26.05";
@@ -19,6 +23,10 @@
     fd
     wl-clipboard
     nerd-fonts.jetbrains-mono
+    python3Packages.markitdown
+    keepassxc
+    vlc
+    obs-studio
 
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-cli
   ];
