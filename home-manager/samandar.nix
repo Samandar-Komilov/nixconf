@@ -17,7 +17,6 @@
   ];
 
   home.packages = with pkgs; [
-    # Core CLI & modern utils
     tree
     file
     bat
@@ -33,8 +32,6 @@
     usbutils
     fastfetch
     nix-tree
-
-    # Editors, Shell & Terminal
     neovim
     eza
     ripgrep
@@ -45,6 +42,7 @@
     keepassxc
     vlc
     obs-studio
+    element-desktop
 
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-cli
   ];

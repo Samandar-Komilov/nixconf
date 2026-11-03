@@ -112,8 +112,8 @@
 
   services.postgresql = {
       enable = true;
-      package = pkgs.postgresql_17;
-      extensions = with pkgs.postgresql_17.pkgs; [
+      package = pkgs.postgresql_18;
+      extensions = with pkgs.postgresql_18.pkgs; [
         pgvector
       ];
       enableTCPIP = true;
