@@ -44,7 +44,22 @@
     obs-studio
     element-desktop
     drawio
+    termius
+    brave
 
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-cli
   ];
+
+  xdg.configFile."autostart/org.keepassxc.KeePassXC.desktop".text = ''
+    [Desktop Entry]
+    Type=Application
+    Name=KeePassXC
+    GenericName=Password Manager
+    Exec=${pkgs.keepassxc}/bin/keepassxc --minimized
+    Icon=keepassxc
+    Terminal=false
+    Categories=Utility;Security;
+    StartupNotify=false
+    X-GNOME-Autostart-enabled=true
+  '';
 }

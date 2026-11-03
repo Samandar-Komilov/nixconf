@@ -60,6 +60,24 @@
         "window.titleBarStyle" = "custom";
         "window.menuBarVisibility" = "classic";
 
+        "files.autoSave" = "onFocusChange";
+        "files.trimTrailingWhitespace" = true;
+        "files.insertFinalNewline" = true;
+        "diffEditor.ignoreTrimWhitespace" = false;
+
+        "github.copilot.enable" = {
+          "*" = false;
+        };
+        "editor.inlineSuggest.enabled" = false;
+        "chat.commandCenter.enabled" = false;
+        "workbench.experimental.chat.enabled" = false;
+        "telemetry.telemetryLevel" = "off";
+        "workbench.enableExperiments" = false;
+        "workbench.settings.enableNaturalLanguageSearch" = false;
+
+        "editor.bracketPairColorization.enabled" = true;
+        "editor.guides.bracketPairs" = "active";
+        "editor.cursorBlinking" = "smooth";
         "editor.fontFamily" = "'JetBrainsMono Nerd Font', monospace";
         "editor.fontLigatures" = true;
         "editor.fontSize" = 14;
