@@ -62,4 +62,31 @@
     StartupNotify=false
     X-GNOME-Autostart-enabled=true
   '';
+
+  programs.zed-editor = {
+    enable = true;
+
+    # Declaratively pre-install the Nix extension
+    extensions = ["nix"];
+
+    # Provide language servers so Zed can find them in its PATH
+    extraPackages = with pkgs; [
+      nixd # Nix language server
+      alejandra # Recommended Nix formatter
+    ];
+
+    # Configure your user settings directly in Nix
+    userSettings = {
+      languages = {
+        Nix = {
+          language_servers = ["nixd"];
+          formatter = {
+            external = {
+              command = "alejandra";
+            };
+          };
+        };
+      };
+    };
+  };
 }
