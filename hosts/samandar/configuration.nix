@@ -157,6 +157,28 @@
     gamescopeSession.enable = true;
   };
 
+  # 32-bit graphics & Intel hardware acceleration for Proton / DXVK
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      intel-vaapi-driver
+      vulkan-loader
+    ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [
+      intel-media-driver
+      intel-vaapi-driver
+      vulkan-loader
+    ];
+  };
+
+  # Feral GameMode: locks CPU governor to performance & boosts priorities while gaming
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

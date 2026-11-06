@@ -41,6 +41,7 @@
     nerd-fonts.jetbrains-mono
     python3Packages.markitdown
     keepassxc
+    protontricks
     vlc
     obs-studio
     element-desktop
