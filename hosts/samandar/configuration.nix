@@ -12,7 +12,10 @@
   ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    configurationLimit = 3;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "samandar"; # Define your hostname.
@@ -181,6 +184,14 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Automated Garbage Collection & Store Optimization
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+  nix.optimise.automatic = true;
 
   nix.settings = {
     experimental-features = "nix-command flakes pipe-operators";
