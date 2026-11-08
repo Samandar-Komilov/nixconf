@@ -82,10 +82,10 @@
         "editor.fontLigatures" = true;
         "editor.fontSize" = 14;
         "editor.lineHeight" = 1.6;
-        "editor.tabSize" = 2;
+        "editor.tabSize" = 4;
         "editor.fontWeight" = "400";
         "editor.smoothScrolling" = true;
-        "editor.minimap.enabled" = false;
+        "editor.minimap.enabled" = true;
         "editor.formatOnSave" = true;
         "editor.padding.top" = 8;
         "editor.padding.bottom" = 8;
