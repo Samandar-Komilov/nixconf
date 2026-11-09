@@ -65,11 +65,14 @@
     X-GNOME-Autostart-enabled=true
   '';
 
-  xdg.configFile."kwalletrc".text = ''
-    [Wallet]
-    Enabled=false
-    First Use=false
-  '';
+  xdg.configFile."kwalletrc" = {
+    force = true;
+    text = ''
+      [Wallet]
+      Enabled=false
+      First Use=false
+    '';
+  };
 
   xdg.dataFile."dbus-1/services/org.freedesktop.secrets.service".text = ''
     [D-BUS Service]

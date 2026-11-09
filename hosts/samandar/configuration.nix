@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -43,9 +44,9 @@
   services.desktopManager.plasma6.enable = true;
 
   security.pam.services = {
-    login.kwallet.enable = false;
-    kde.kwallet.enable = false;
-    sddm.kwallet.enable = false;
+    login.kwallet.enable = lib.mkForce false;
+    kde.kwallet.enable = lib.mkForce false;
+    sddm.kwallet.enable = lib.mkForce false;
   };
 
   virtualisation = {
