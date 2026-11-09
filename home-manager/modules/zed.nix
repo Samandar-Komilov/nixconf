@@ -58,7 +58,7 @@
       cursor_shape = "bar";
       relative_line_numbers = false;
       show_whitespaces = "none";
-      tab_size = 2;
+      tab_size = 4;
 
       indent_guides = {
         enabled = true;

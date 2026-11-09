@@ -64,4 +64,16 @@
     StartupNotify=false
     X-GNOME-Autostart-enabled=true
   '';
+
+  xdg.configFile."kwalletrc".text = ''
+    [Wallet]
+    Enabled=false
+    First Use=false
+  '';
+
+  xdg.dataFile."dbus-1/services/org.freedesktop.secrets.service".text = ''
+    [D-BUS Service]
+    Name=org.freedesktop.secrets
+    Exec=${pkgs.keepassxc}/bin/keepassxc
+  '';
 }

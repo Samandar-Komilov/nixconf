@@ -42,6 +42,12 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  security.pam.services = {
+    login.kwallet.enable = false;
+    kde.kwallet.enable = false;
+    sddm.kwallet.enable = false;
+  };
+
   virtualisation = {
     docker = {
       enable = true;
