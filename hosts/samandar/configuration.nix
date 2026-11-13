@@ -43,10 +43,10 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  security.pam.services = {
-    login.kwallet.enable = lib.mkForce false;
-    kde.kwallet.enable = lib.mkForce false;
-    sddm.kwallet.enable = lib.mkForce false;
+  # Enable Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
   };
 
   virtualisation = {
@@ -258,16 +258,16 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
+  # Enable SSH agent for managing keys with KWallet
+  programs.ssh.startAgent = true;
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  # SSH server disabled (laptop is a client, not a server)
+  services.openssh.enable = false;
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [22];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # Firewall: all incoming ports closed
+  networking.firewall.enable = true;
+  networking.firewall.allowedTCPPorts = [];
+  networking.firewall.allowedUDPPorts = [];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

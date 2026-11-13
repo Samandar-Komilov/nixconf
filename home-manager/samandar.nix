@@ -15,6 +15,7 @@
     ./modules/git.nix
     ./modules/vscode.nix
     ./modules/zed.nix
+    ./modules/ssh.nix
   ];
 
   home.packages = with pkgs; [
@@ -40,7 +41,6 @@
     wl-clipboard
     nerd-fonts.jetbrains-mono
     python3Packages.markitdown
-    keepassxc
     protontricks
     vlc
     obs-studio
@@ -51,32 +51,4 @@
 
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-cli
   ];
-
-  xdg.configFile."autostart/org.keepassxc.KeePassXC.desktop".text = ''
-    [Desktop Entry]
-    Type=Application
-    Name=KeePassXC
-    GenericName=Password Manager
-    Exec=${pkgs.keepassxc}/bin/keepassxc --minimized
-    Icon=keepassxc
-    Terminal=false
-    Categories=Utility;Security;
-    StartupNotify=false
-    X-GNOME-Autostart-enabled=true
-  '';
-
-  xdg.configFile."kwalletrc" = {
-    force = true;
-    text = ''
-      [Wallet]
-      Enabled=false
-      First Use=false
-    '';
-  };
-
-  xdg.dataFile."dbus-1/services/org.freedesktop.secrets.service".text = ''
-    [D-BUS Service]
-    Name=org.freedesktop.secrets
-    Exec=${pkgs.keepassxc}/bin/keepassxc
-  '';
 }
