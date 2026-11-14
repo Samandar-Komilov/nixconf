@@ -1,7 +1,10 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.alacritty = {
     enable = true;
     settings = {
+      terminal.shell = {
+        program = "${pkgs.zellij}/bin/zellij";
+      };
       window = {
         opacity = 0.78;
         blur = true;

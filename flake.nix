@@ -9,8 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-   antigravity-nix = {
-    url = "github:jacopone/antigravity-nix";
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
     };
   };
 
@@ -19,23 +19,24 @@
     nixpkgs,
     home-manager,
     ...
-  } @ inputs: 
-    let
-        system = "x86_64-linux";
-	pkgs = import nixpkgs { inherit system; };
-    in
-    {
-      nixosConfigurations.voidp = import ./hosts/samandar inputs;
-
-      formatter.${system} = pkgs.nixfmt-tree;
-        devShells.${system}.default = pkgs.mkShell {
-          packages = with pkgs; [
-            self.formatter.${system}
-              nil
-              nixd
-              statix
-              deadnix
-          ];
-        };
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {inherit system;};
+  in {
+    nixosConfigurations = {
+      marakanda = import ./hosts/marakanda inputs;
+      constantinople = import ./hosts/constantinople inputs;
     };
+
+    formatter.${system} = pkgs.nixfmt-tree;
+    devShells.${system}.default = pkgs.mkShell {
+      packages = with pkgs; [
+        self.formatter.${system}
+        nil
+        nixd
+        statix
+        deadnix
+      ];
+    };
+  };
 }

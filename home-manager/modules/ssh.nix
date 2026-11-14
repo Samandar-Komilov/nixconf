@@ -14,7 +14,6 @@
     };
   };
 
-  # SSH_ASKPASS and packages for KDE KWallet integration
   home.packages = [pkgs.kdePackages.ksshaskpass];
   home.sessionVariables = {
     SSH_ASKPASS = "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";

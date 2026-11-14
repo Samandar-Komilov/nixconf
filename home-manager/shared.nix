@@ -1,10 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
-  home.username = "samandar";
-  home.homeDirectory = "/home/samandar";
+{pkgs, ...}: {
   home.stateVersion = "26.05";
 
   imports = [
@@ -12,13 +6,14 @@
     ./modules/zellij.nix
     ./modules/starship.nix
     ./modules/zsh.nix
-    ./modules/git.nix
     ./modules/vscode.nix
     ./modules/zed.nix
-    ./modules/ssh.nix
   ];
 
+  programs.direnv.enable = true;
+
   home.packages = with pkgs; [
+    # Core utils
     tree
     file
     bat
@@ -41,14 +36,16 @@
     wl-clipboard
     nerd-fonts.jetbrains-mono
     python3Packages.markitdown
-    protontricks
-    vlc
-    obs-studio
-    element-desktop
-    drawio
-    termius
-    brave
 
-    inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-cli
+    # Apps
+    vlc
+    element-desktop
+    telegram-desktop
+    drawio
+    ffmpeg
+    dive
+    dnsmasq
+    yt-dlp
+    qbittorrent
   ];
 }
