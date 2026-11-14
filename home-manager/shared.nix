@@ -38,6 +38,7 @@
     python3Packages.markitdown
 
     # Apps
+    firefox
     vlc
     element-desktop
     telegram-desktop
