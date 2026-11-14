@@ -12,6 +12,15 @@
     ../modules/ssh.nix
   ];
 
+  # Personal user SSH hosts and keys
+  programs.ssh.settings = {
+    "github.com" = {
+      HostName = "github.com";
+      User = "samandar";
+      IdentityFile = "~/.ssh/samandar_nixos";
+    };
+  };
+
   home.packages = with pkgs; [
     obs-studio
     termius

@@ -1,16 +1,10 @@
 {pkgs, ...}: {
+  # Base SSH client & KWallet integration (shared across all users)
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    settings = {
-      "*" = {
-        AddKeysToAgent = "yes";
-      };
-      "github.com" = {
-        HostName = "github.com";
-        User = "samandar";
-        IdentityFile = "~/.ssh/samandar_nixos";
-      };
+    settings."*" = {
+      AddKeysToAgent = "yes";
     };
   };
 
