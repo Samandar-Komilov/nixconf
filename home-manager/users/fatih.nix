@@ -13,7 +13,7 @@
     "github.com" = {
       HostName = "github.com";
       User = "git";
-      IdentityFile = "~/.ssh/id_ed25519"; # Replace with your work key filename if different (e.g. ~/.ssh/fatih_work)
+      IdentityFile = "~/.ssh/fatih_constantinople";
     };
   };
 
