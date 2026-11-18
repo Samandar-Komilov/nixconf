@@ -36,6 +36,7 @@
     wl-clipboard
     nerd-fonts.jetbrains-mono
     python3Packages.markitdown
+    lldb
 
     # Apps
     firefox
