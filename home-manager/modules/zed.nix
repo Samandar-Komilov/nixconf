@@ -8,9 +8,11 @@
       "assembly"
       "csv"
       "git-firefly"
+      "wakatime"
     ];
 
     extraPackages = with pkgs; [
+      wakatime-cli
       nixd
       alejandra
       rust-analyzer

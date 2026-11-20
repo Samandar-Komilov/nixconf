@@ -9,6 +9,28 @@
       extended = true;
     };
 
+    initContent = ''
+      # Word navigation (Ctrl + Left/Right and Alt + Left/Right)
+      bindkey '^[[1;5D' backward-word
+      bindkey '^[[1;5C' forward-word
+      bindkey '^[[1;3D' backward-word
+      bindkey '^[[1;3C' forward-word
+      bindkey '^[b' backward-word
+      bindkey '^[f' forward-word
+
+      # Line navigation (Home / End)
+      bindkey '^[[H' beginning-of-line
+      bindkey '^[[F' end-of-line
+      bindkey '^[[1~' beginning-of-line
+      bindkey '^[[4~' end-of-line
+
+      # Deletion (Ctrl + Backspace / Ctrl + Delete)
+      bindkey '^H' backward-kill-word
+      bindkey '^?' backward-delete-char
+      bindkey '^[[3;5~' kill-word
+      bindkey '^[[3~' delete-char
+    '';
+
     shellAliases = {
       cl = "clear";
       # reload = "sudo nixos-rebuild switch --flake .";

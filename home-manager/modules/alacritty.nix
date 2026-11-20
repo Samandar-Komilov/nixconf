@@ -69,6 +69,25 @@
           blinking = "On";
         };
       };
+
+      keyboard.bindings = [
+        # Word jumping (Ctrl + Left/Right)
+        { key = "Left";  mods = "Control"; chars = "\\u001b[1;5D"; }
+        { key = "Right"; mods = "Control"; chars = "\\u001b[1;5C"; }
+        # Word jumping (Alt + Left/Right)
+        { key = "Left";  mods = "Alt";     chars = "\\u001bb"; }
+        { key = "Right"; mods = "Alt";     chars = "\\u001bf"; }
+        # Line jumping (Home / End)
+        { key = "Home"; chars = "\\u001b[H"; }
+        { key = "End";  chars = "\\u001b[F"; }
+        # Delete word backwards (Ctrl + Backspace)
+        { key = "Back"; mods = "Control"; chars = "\\u0017"; }
+        # Delete word forwards (Ctrl + Delete)
+        { key = "Delete"; mods = "Control"; chars = "\\u001bd"; }
+        # Copy / Paste like standard GUI/VS Code
+        { key = "C"; mods = "Control|Shift"; action = "Copy"; }
+        { key = "V"; mods = "Control|Shift"; action = "Paste"; }
+      ];
     };
   };
 }
