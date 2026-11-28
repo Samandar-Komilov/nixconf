@@ -53,6 +53,7 @@
     dnsmasq
     yt-dlp
     qbittorrent
+    bruno
 
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-cli
   ];
