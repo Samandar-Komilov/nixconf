@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Connect Kerio VPN
+Comment=Start Kerio Control VPN Client Daemon
+Exec=systemctl start kerio-kvc
+Icon=network-vpn
+Terminal=false
+Categories=Network;

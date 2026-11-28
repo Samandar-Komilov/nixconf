@@ -14,6 +14,7 @@
     ../../modules/services/libvirt.nix
     ../../modules/services/postgres.nix
     ../../modules/services/gaming.nix
+    ../../modules/services/kerio-vpn.nix
   ];
 
   networking.hostName = "marakanda";

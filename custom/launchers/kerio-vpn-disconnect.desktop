@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Disconnect Kerio VPN
+Comment=Stop Kerio Control VPN Client Daemon
+Exec=systemctl stop kerio-kvc
+Icon=network-vpn-disconnected
+Terminal=false
+Categories=Network;
